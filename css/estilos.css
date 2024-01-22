@@ -1,0 +1,22 @@
+.tema{
+    position: fixed;
+    right: 15px;
+    bottom: 15px;
+}
+.card-title{
+    font-size: 16px;
+}
+.valor {
+    font-weight: bold;
+    color: red; 
+}
+.productos {
+    font-size: 20px;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.shop {
+    text-decoration: none;
+    font-size: 23px;
+}
