@@ -1,84 +1,84 @@
 [
     {
         "nombre": "Game of Thrones Hand of The King",
-        "img": "https://images.zmart.cl/Productos/SKU/2024/01/04/GEEK00841_20241413050_f.png",
+        "img": "../imagenes/got-hotk.png",
         "stock": "40",
         "precio": "34.990",
         "id": 1
     },
     {
         "nombre": "Teclado para Wii Mote Type Pad",
-        "img": "https://images.zmart.cl/Productos/SKU/2024/01/15/WIIH0117_2024115155232_f.jpg",
+        "img": "../imagenes/teclado-wii.jpg",
         "stock": "15",
         "precio": "19.990",
         "id": 2
     },
     {
         "nombre": "Figura Deformations Vol1 Jehuty",
-        "img": "https://images.zmart.cl/Productos/SKU/2014/05/22/JCAF0305_201452216945_f.jpg",
+        "img": "../imagenes/figura-deformations.jpg",
         "stock": "5",
         "precio": "54.990",
         "id": 3
     },
     {
         "nombre": "Figura Robotech 1/100 Scale VF-1D",
-        "img": "https://images.zmart.cl/Productos/SKU/2017/01/24/JCAF0711_2017124155752_f.jpg",
+        "img": "../imagenes/figura-robotech.jpg",
         "stock": "8",
         "precio": "79.990",
         "id": 4
     },
     {
         "nombre": "Estatua Banpresto MHA Age of Heroes Deku",
-        "img": "https://images.zmart.cl/Productos/SKU/2019/08/06/JCFG3988_201986164927_f.jpg",
+        "img": "../imagenes/estatua-deku.jpg",
         "stock": "18",
         "precio": "34.990",
         "id": 5
     },
     {
         "nombre": "Figura Nendoroid Shikamaru Nara",
-        "img": "https://images.zmart.cl/Productos/SKU/2020/07/05/JCAF1326_20207517012_f.jpg",
+        "img": "../imagenes/figura-shikamaru.jpg",
         "stock": "30",
         "precio": "69.990",
         "id": 6
     },
     {
         "nombre": "Street Fighter 6 PS4",
-        "img": "https://images.zmart.cl/Productos/SKU/2023/01/06/PS4G1908_20231615306_f.jpg",
+        "img": "../imagenes/sf6.jpg",
         "stock": "100",
         "precio": "29.990",
         "id": 7
     },
     {
         "nombre": "Disney Collection Jungle Aladdin Lion King PS4",
-        "img": "https://images.zmart.cl/Productos/SKU/2023/11/22/PS4G2026_20231122163038_f.jpg",
+        "img": "../imagenes/disney-collection.jpg",
         "stock": "80",
         "precio": "29.990",
         "id": 8
     },
     {
         "nombre": "No Straight Roads PS4",
-        "img": "https://images.zmart.cl/Productos/SKU/2020/06/12/NSWG0684_2020612122928_s.jpg",
+        "img": "../imagenes/road-ps4.jpg",
         "stock": "10",
         "precio": "10.990",
         "id": 9
     },
     {
         "nombre": "Control Sony DualShock 4 Midnight Blue PS4",
-        "img": "https://images.zmart.cl/Productos/SKU/2018/01/31/PS4H064_201813111483_f.jpg",
+        "img": "../imagenes/control-ps4.jpg",
         "stock": "15",
         "precio": "74.990",
         "id": 10
     },
     {
         "nombre": "Payday 3 Xbox Series X",
-        "img": "https://images.zmart.cl/Productos/SKU/2023/09/26/XBSXG0269_202392617630_f.jpg",
+        "img": "../imagenes/payday3-xbx.jpg",
         "stock": "50",
         "precio": "49.990",
         "id": 11
     },
     {
         "nombre": "Moving Out XBOX ONE",
-        "img": "https://images.zmart.cl/Productos/SKU/2020/02/10/XBONEG1073_2020210114319_f.jpg",
+        "img": "../imagenes/moving-xbo.jpg",
         "stock": "5",
         "precio": "9.990",
         "id": 12

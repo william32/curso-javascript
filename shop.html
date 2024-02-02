@@ -13,31 +13,34 @@
     <link rel="stylesheet" href="./css/estilos.css">
 </head>
 <body>
-     <!--Header -->
-     <header class="p-3 mb-3 border-bottom">
-        <div class="container">
-          <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
-            <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 link-body-emphasis text-decoration-none">
-              <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap"></use></svg>
-            </a>
-    
-            <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-              <li><a href="./index.html" class="nav-link px-2 link-secondary">Productos</a></li>
-            </ul>
-    
-            <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
-              <input type="search" class="form-control" placeholder="Buscar..." aria-label="Buscar">
-            </form>
-    
-            <div>
-              <a href="./shop.html">
-                <i class="bi bi-cart2"></i>
-                <span id="counterShop">0</span>
+        <!--Header -->
+        <header class="p-3 mb-3 border-bottom">
+          <div class="container">
+            <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+              <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 link-body-emphasis text-decoration-none">
+                <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap"></use></svg>
               </a>
+      
+              <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+                <li><a href="./index.html" class="nav-link px-2 link-secondary productos">Productos</a></li>
+              </ul>
+      
+              <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
+                <input type="search" class="form-control" placeholder="Buscar..." aria-label="Buscar">
+              </form>
+      
+              <div style="display: block;">
+                <a class="card-title shop" href="./shop.html">
+                  <i class="bi bi-cart2"></i>
+                  <span id="counterShop">0</span>
+                </a>
+              </div>
             </div>
           </div>
-        </div>
-      </header>
+        </header>
+
+
+
       <!-- Tema switcher -->
     <div class="tema">
         <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown"><i
@@ -48,6 +51,6 @@
             <li><a class="dropdown-item" data-value="dark" href="#">Oscuro</a></li>
         </ul>
     </div>
-    <script src="./js/main.js"></script>
+    <script src="./js/shop.js"></script>
 </body>
 </html>
