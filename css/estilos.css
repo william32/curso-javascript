@@ -20,3 +20,14 @@
     text-decoration: none;
     font-size: 23px;
 }
+
+#rowData img{
+    width: 50%;
+}
+
+.total {
+    display: flex;
+    flex-direction: row-reverse;
+    font-size: 22px;
+    text-transform: uppercase;
+}

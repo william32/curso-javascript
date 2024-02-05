@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -25,9 +25,7 @@
                 <li><a href="./index.html" class="nav-link px-2 link-secondary productos">Productos</a></li>
               </ul>
       
-              <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
-                <input type="search" class="form-control" placeholder="Buscar..." aria-label="Buscar">
-              </form>
+              
       
               <div style="display: block;">
                 <a class="card-title shop" href="./shop.html">
@@ -35,22 +33,26 @@
                   <span id="counterShop">0</span>
                 </a>
               </div>
+
             </div>
           </div>
         </header>
-
-
+        <!-- Lista productos carro-->
+        <div class="container text-center">
+          <div id="rowData" class="row">
+          </div>
+      </div>
 
       <!-- Tema switcher -->
-    <div class="tema">
-        <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown"><i
-                class="bi bi-moon"></i>
-        </button>
-        <ul id="seleccionTema" class="dropdown-menu">
-            <li><a class="dropdown-item" data-value="light" href="#">Claro</a></li>
-            <li><a class="dropdown-item" data-value="dark" href="#">Oscuro</a></li>
-        </ul>
-    </div>
+      <div class="tema">
+          <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown"><i
+                  class="bi bi-moon"></i>
+          </button>
+          <ul id="seleccionTema" class="dropdown-menu">
+              <li><a class="dropdown-item" data-value="light" href="#">Claro</a></li>
+              <li><a class="dropdown-item" data-value="dark" href="#">Oscuro</a></li>
+          </ul>
+      </div>
     <script src="./js/shop.js"></script>
 </body>
 </html>
