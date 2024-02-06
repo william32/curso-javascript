@@ -49,17 +49,34 @@ if(getDataCarro.length > 0){
             buttonProducto.innerHTML = 'Eliminar del Carro!';
             buttonProducto.addEventListener('click', () => {
                 console.log(getDataCarro[index]['id']);
-                // deleteElementToLocalSotrage(data[index])
+                newArr = deleteElementToLocalSotrage(getDataCarro , getDataCarro[index]['id'])
+                saveToLocalStorage(newArr)
             })
 
         divCard.appendChild(buttonProducto)
         dataCarro.appendChild(divCard)
         
     }
+
     const divTotal = document.createElement('div')
     divTotal.setAttribute('class', 'total')
     divTotal.innerText = "Precio total: "+valorTotal 
     dataCarro.appendChild(divTotal)
+
+    const divPagar = document.createElement('button')
+    divPagar.setAttribute('class', 'btn btn-success')
+    divPagar.setAttribute('id', 'btn-pagar')
+    divPagar.setAttribute('type', 'button')
+    divPagar.innerText = "Pagar" 
+    dataCarro.appendChild(divPagar)
+
+    const divVaciar = document.createElement('button')
+    divVaciar.setAttribute('class', 'btn btn-danger')
+    divVaciar.setAttribute('id', 'btn-vaciar')
+    divVaciar.setAttribute('type', 'button')
+    divVaciar.innerText = "Vaciar Carro" 
+    dataCarro.appendChild(divVaciar)
+
 }else {
     console.log("vacio")
     const divCard = document.createElement('div')
@@ -68,7 +85,7 @@ if(getDataCarro.length > 0){
     <div class="col-sm-12 empty-cart-cls text-center">
         <img src="./imagenes/empty-shop.png" width="130" height="130" class="img-fluid mb-4 mr-3" style="width: 100px">
         <h3><strong>Carrito Vacio</strong></h3>
-        <h4>Agrega algo que me haga feliz :)</h4>
+        <h4>Agrega algo para me haga feliz :)</h4>
         <a href="./index.html" class="btn btn-primary cart-btn-transform m-3" data-abc="true">Volver a los productos</a>
     </div>
     `
@@ -82,6 +99,24 @@ function calculateTotal(array) {
     });
     return total.toFixed(2)
   }
+
+  function deleteElementToLocalSotrage(arr, deleteItem){
+    const updatedHero = arr.filter(item => item.id !== deleteItem);
+    return updatedHero
+  }
+
+  // Guarda en localStorage en item carro
+function saveToLocalStorage(data) {
+    localStorage.setItem("carro", JSON.stringify(data))
+    geCountElementInCarro()
+    location.reload();
+}
+
+const btnPagar = document.querySelector("#btn-pagar")
+btnPagar.addEventListener('click', (event) => {
+    document.getElementById("formPay").style.display= 'block'
+})
+
 
 
 								

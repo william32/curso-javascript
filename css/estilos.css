@@ -31,3 +31,16 @@
     font-size: 22px;
     text-transform: uppercase;
 }
+
+#btn-pagar{
+    width: 50%;
+    text-transform: uppercase;
+}
+#btn-vaciar{
+    width: 50%;
+    text-transform: uppercase;
+}
+
+#formPay{
+    display: none;
+}

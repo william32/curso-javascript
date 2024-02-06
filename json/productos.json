@@ -2,7 +2,6 @@
     {
         "nombre": "Game of Thrones Hand of The King",
         "img": "../imagenes/got-hotk.png",
-        "stock": "40",
         "precio": 34.99,
         "id": 1,
         "descripcion":"Recreating the pin seen in HBO's Game of Thrones, you can now be the Hand of the King! Worn by Eddard Stark, Tywin Lannister, and Tyrion Lannister, the Hand of the Pin is an awesome responsibility!"
@@ -10,7 +9,6 @@
     {
         "nombre": "Teclado para Wii Mote Type Pad",
         "img": "../imagenes/teclado-wii.jpg",
-        "stock": "15",
         "precio": 19.99,
         "id": 2,
         "descripcion": "Producto 100% compatible con marca Nintendo. 100% Compatible con Wii Motes Nintendo"
@@ -18,7 +16,6 @@
     {
         "nombre": "Figura Deformations Vol1 Jehuty",
         "img": "../imagenes/figura-deformations.jpg",
-        "stock": "5",
         "precio": 54.99,
         "id": 3,
         "descripcion": "Es Jehuty de Zone of the Enders, en un super adorable estilo Deformations! Con casi 12 cms de altura, es altamente posable y viene con alas, manos extras, dos espadas para acoplar a sus brazos y una base."
@@ -26,7 +23,6 @@
     {
         "nombre": "Figura Robotech 1/100 Scale VF-1D",
         "img": "../imagenes/figura-robotech.jpg",
-        "stock": "8",
         "precio": 79.99,
         "id": 4,
         "descripcion":"Strap into your Veritech and celebrate the 30th-anniversary of Robotech in 2015! The armored GBF-15 system allows a single VF-1 Fighter to wield the artillery firepower of an entire squadron."
@@ -34,7 +30,6 @@
     {
         "nombre": "Estatua Banpresto MHA Age of Heroes Deku",
         "img": "../imagenes/estatua-deku.jpg",
-        "stock": "18",
         "precio": 34.99,
         "id": 5,
         "descripcion": "Altura: 16 cms aproxDesarrollador: Banpresto"
@@ -42,7 +37,6 @@
     {
         "nombre": "Figura Nendoroid Shikamaru Nara",
         "img": "../imagenes/figura-shikamaru.jpg",
-        "stock": "30",
         "precio": 69.99,
         "id": 6,
         "descripcion":"From the popular anime Naruto Shippuden comes a Nendoroid of Shikamaru Nara! He comes with three face plates including a standard expression, a crying expression and a lazy expression."
@@ -50,7 +44,6 @@
     {
         "nombre": "Street Fighter 6 PS4",
         "img": "../imagenes/sf6.jpg",
-        "stock": "100",
         "precio": 29.99,
         "id": 7,
         "descripcion":"Upgrade gratuito a la versión Digital de PS5. (para poder acceder a este upgrade, requieres una consola PS5 Standard con lector de discos)."
@@ -58,7 +51,6 @@
     {
         "nombre": "Disney Collection Jungle Aladdin Lion King PS4",
         "img": "../imagenes/disney-collection.jpg",
-        "stock": "80",
         "precio": 29.99,
         "id": 8,
         "descripcion": "Disco incluye 3 juegos: - The Jungle Book -Aladdin -The Lion King"
@@ -66,7 +58,6 @@
     {
         "nombre": "No Straight Roads PS4",
         "img": "../imagenes/road-ps4.jpg",
-        "stock": "10",
         "precio": 10.99,
         "id": 9,
         "descripcion":  "Explora Vinyl City y lucha con megaestrellas musicales para derrotar al opresivo imperio de la EDM «NSR», en una aventura llena de acción que combina rítmicos combates en 3.ª persona y una cañera banda sonora."
@@ -74,7 +65,6 @@
     {
         "nombre": "Control Sony DualShock 4 Midnight Blue PS4",
         "img": "../imagenes/control-ps4.jpg",
-        "stock": "15",
         "precio": 74.99,
         "id": 10,
         "descripcion":"El control inalámbrico DUALSHOCK®4 incluye los clásicos controles de PlayStation® e incorpora varias funciones para darle inicio a una nueva era de experiencias interactivas."
@@ -82,7 +72,6 @@
     {
         "nombre": "Payday 3 Xbox Series X",
         "img": "../imagenes/payday3-xbx.jpg",
-        "stock": "50",
         "precio": 49.99,
         "id": 11,
         "descripcion":"Payday 3 es un juego de disparos en primera persona desarrollado por Overkill Software y Starbreeze Studios y publicado por Prime Matter. Es la tercera entrega de la serie de videojuegos Payday y una secuela de Payday 2"
@@ -90,7 +79,6 @@
     {
         "nombre": "Moving Out XBOX ONE",
         "img": "../imagenes/moving-xbo.jpg",
-        "stock": "5",
         "precio": 9.99,
         "id": 12,
         "descripcion": "Moving Out es un juego de simulación de movimiento cooperativo de 2020 desarrollado por el estudio sueco DevM Games y el desarrollador australiano SMG Studio."
