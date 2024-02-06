@@ -9,9 +9,9 @@ if (getTema) {
 // Escucha el evento click y setea en local storage la variable
 temaSeleccinado = document.querySelector("#seleccionTema")
 temaSeleccinado.addEventListener("click", (event) => {
-        document.body.setAttribute('data-bs-theme', event.target.dataset.value)
-        localStorage.setItem("tema", event.target.dataset.value)
-    }
+    document.body.setAttribute('data-bs-theme', event.target.dataset.value)
+    localStorage.setItem("tema", event.target.dataset.value)
+}
 )
 const addShop = JSON.parse(localStorage.getItem("carro")) || []
 geCountElementInCarro()
@@ -26,9 +26,10 @@ function geCountElementInCarro() {
 const getDataCarro = JSON.parse(localStorage.getItem("carro")) || []
 console.log(getDataCarro.length);
 const dataCarro = document.querySelector("#rowData")
-if(getDataCarro.length > 0){
+if (getDataCarro.length > 0) {
     let valorTotal = calculateTotal(getDataCarro)
     for (let index = 0; index < getDataCarro.length; index++) {
+        
         const divCard = document.createElement('div')
         divCard.setAttribute('class', 'card mb-12')
         divCard.innerHTML += `
@@ -40,44 +41,48 @@ if(getDataCarro.length > 0){
             <div class="card-body"> 
                 <h5 class="card-title">${getDataCarro[index]["nombre"]}</h5>
                 <p class="card-text">${getDataCarro[index]["descripcion"]}</p>
-                <p class="card-text"><small class="text-body-secondary">Precio: ${getDataCarro[index]["precio"]}</small></p>
+                <p class="card-text price">Precio: ${getDataCarro[index]["precio"]}</p>
             </div>
             </div>
         </div>
         `
         let buttonProducto = document.createElement('button')
-            buttonProducto.innerHTML = 'Eliminar del Carro!';
-            buttonProducto.addEventListener('click', () => {
-                console.log(getDataCarro[index]['id']);
-                newArr = deleteElementToLocalSotrage(getDataCarro , getDataCarro[index]['id'])
-                saveToLocalStorage(newArr)
-            })
+        buttonProducto.innerHTML = 'Eliminar del Carro!';
+        buttonProducto.addEventListener('click', () => {
+            console.log(getDataCarro[index]['id']);
+            newArr = deleteElementToLocalSotrage(getDataCarro, getDataCarro[index]['id'])
+            saveToLocalStorage(newArr)
+        })
 
         divCard.appendChild(buttonProducto)
         dataCarro.appendChild(divCard)
-        
+
     }
 
     const divTotal = document.createElement('div')
     divTotal.setAttribute('class', 'total')
-    divTotal.innerText = "Precio total: "+valorTotal 
+    divTotal.innerText = "Precio total: " + valorTotal
     dataCarro.appendChild(divTotal)
+
+    const divPayContainer = document.createElement('div')
+    divPayContainer.setAttribute('class', 'payContainer')
+    dataCarro.appendChild(divPayContainer)
 
     const divPagar = document.createElement('button')
     divPagar.setAttribute('class', 'btn btn-success')
     divPagar.setAttribute('id', 'btn-pagar')
     divPagar.setAttribute('type', 'button')
-    divPagar.innerText = "Pagar" 
-    dataCarro.appendChild(divPagar)
+    divPagar.innerText = "Pagar"
+    divPayContainer.appendChild(divPagar)
 
     const divVaciar = document.createElement('button')
     divVaciar.setAttribute('class', 'btn btn-danger')
     divVaciar.setAttribute('id', 'btn-vaciar')
     divVaciar.setAttribute('type', 'button')
-    divVaciar.innerText = "Vaciar Carro" 
-    dataCarro.appendChild(divVaciar)
+    divVaciar.innerText = "Vaciar Carro"
+    divPayContainer.appendChild(divVaciar)
 
-}else {
+} else {
     console.log("vacio")
     const divCard = document.createElement('div')
     divCard.setAttribute('class', 'card-body cart')
@@ -98,14 +103,14 @@ function calculateTotal(array) {
         total += item.precio;
     });
     return total.toFixed(2)
-  }
+}
 
-  function deleteElementToLocalSotrage(arr, deleteItem){
+function deleteElementToLocalSotrage(arr, deleteItem) {
     const updatedHero = arr.filter(item => item.id !== deleteItem);
     return updatedHero
-  }
+}
 
-  // Guarda en localStorage en item carro
+// Guarda en localStorage en item carro
 function saveToLocalStorage(data) {
     localStorage.setItem("carro", JSON.stringify(data))
     geCountElementInCarro()
@@ -113,12 +118,60 @@ function saveToLocalStorage(data) {
 }
 
 const btnPagar = document.querySelector("#btn-pagar")
-btnPagar.addEventListener('click', (event) => {
-    document.getElementById("formPay").style.display= 'block'
+if (getDataCarro.length > 0) {
+    btnPagar.addEventListener('click', (event) => {
+        document.getElementById("formPay").style.display = 'block'
+    })
+}
+
+const envioPago = document.querySelector("#envioPago")
+envioPago.addEventListener('click', (event) => {
+    Swal.fire({
+        position: "center",
+        icon: "success",
+        title: "Gracias por tu compra",
+        showConfirmButton: true
+    });
+    limpiaCarrito();
 })
 
+const btnVaciarCarro = document.querySelector("#btn-vaciar")
+if (getDataCarro.length > 0) {
+    btnVaciarCarro.addEventListener('click', (event) => {
+        Swal.fire({
+            title: "Estas Seguro de vaciar el Carrito?",
+            text: "Esta accion no se puede deshacer!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Vaciar &#128542;"
+        }).then((result) => {
+            if (result.isConfirmed) {
+                Swal.fire({
+                    title: "Carro Vacio &#128557;",
+                    text: "Vuelve Pronto.",
+                    icon: "info",
+                    showConfirmButton: true
+                });
+                limpiaCarrito();
+            }
+        });
+    })
+}
 
 
-								
+function limpiaCarrito() {
+    setTimeout(() => {
+        localStorage.removeItem("carro")
+        location.reload();
+    }, 3000)
+
+}
+
+
+
+
+
 
 
