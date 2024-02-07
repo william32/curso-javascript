@@ -23,13 +23,14 @@ function geCountElementInCarro() {
     counterShop.innerHTML = value?.length || 0
 }
 
-const getDataCarro = JSON.parse(localStorage.getItem("carro")) || []
+let getDataCarro = JSON.parse(localStorage.getItem("carro")) || []
 console.log(getDataCarro.length);
 const dataCarro = document.querySelector("#rowData")
 if (getDataCarro.length > 0) {
     let valorTotal = calculateTotal(getDataCarro)
+    getDataCarro = updateArr(getDataCarro)
     for (let index = 0; index < getDataCarro.length; index++) {
-        
+
         const divCard = document.createElement('div')
         divCard.setAttribute('class', 'card mb-12')
         divCard.innerHTML += `
@@ -46,6 +47,9 @@ if (getDataCarro.length > 0) {
             </div>
         </div>
         `
+        const divContainerButton = document.createElement('div')
+        divContainerButton.setAttribute("class", "containerButton")
+
         let buttonProducto = document.createElement('button')
         buttonProducto.innerHTML = 'Eliminar del Carro!';
         buttonProducto.addEventListener('click', () => {
@@ -53,8 +57,8 @@ if (getDataCarro.length > 0) {
             newArr = deleteElementToLocalSotrage(getDataCarro, getDataCarro[index]['id'])
             saveToLocalStorage(newArr)
         })
-
-        divCard.appendChild(buttonProducto)
+        divContainerButton.appendChild(buttonProducto)
+        divCard.appendChild(divContainerButton)
         dataCarro.appendChild(divCard)
 
     }
@@ -167,6 +171,21 @@ function limpiaCarrito() {
         location.reload();
     }, 3000)
 
+}
+
+function updateArr(array) {
+    const resultado = {};
+
+    array.forEach(el => (
+        resultado[el.id] = resultado[el.id] + 1 || 1
+        )
+    )
+    console.log(resultado)
+    /*
+    let set = new Set(array.map(JSON.stringify))
+    let arrSinDuplicaciones = Array.from(set).map(JSON.parse);
+    return arrSinDuplicaciones;
+    */
 }
 
 

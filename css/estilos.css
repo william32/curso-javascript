@@ -48,7 +48,7 @@
 .payContainer{
     display: flex;
     justify-content: space-around;
-    margin-top: 45px;
+    margin: 45px;
 }
 
 .price {
@@ -57,3 +57,38 @@
     color: red;
     font-size: 24px;
 }
+
+.containerButton{
+    display: flex;
+    justify-content: right;
+    margin-bottom: 15px;
+}
+
+/* Footer */
+footer {
+    background-color: #292c2f;
+    text-align: center;
+    font: 14px sans-serif;
+    padding: 45px 50px;
+    color: #ffffff;
+  }
+  
+  footer a {
+    font-weight: bold;
+    color: #ffffff;
+    text-decoration: none;
+    margin: 5px;
+  }
+  footer a:hover {
+    color: #e17729;
+  }
+  
+  /* END Footer */
+
+  #logo {
+    width: 45px;
+    height: auto;
+  }
+  #container-shop{
+    min-height: 750px;
+  }
