@@ -23,71 +23,18 @@ function geCountElementInCarro() {
     counterShop.innerHTML = value?.length || 0
 }
 
+
+    
+
+const resultado = {};
+let newArr = [];
 let getDataCarro = JSON.parse(localStorage.getItem("carro")) || []
-console.log(getDataCarro.length);
 const dataCarro = document.querySelector("#rowData")
 if (getDataCarro.length > 0) {
     let valorTotal = calculateTotal(getDataCarro)
-    getDataCarro = updateArr(getDataCarro)
-    for (let index = 0; index < getDataCarro.length; index++) {
-
-        const divCard = document.createElement('div')
-        divCard.setAttribute('class', 'card mb-12')
-        divCard.innerHTML += `
-        <div class="row g-0">
-            <div class="col-md-4">
-            <img src="${getDataCarro[index]["img"]}" class="img-fluid rounded-start" alt="...">
-            </div>
-            <div class="col-md-8">
-            <div class="card-body"> 
-                <h5 class="card-title">${getDataCarro[index]["nombre"]}</h5>
-                <p class="card-text">${getDataCarro[index]["descripcion"]}</p>
-                <p class="card-text price">Precio: ${getDataCarro[index]["precio"]}</p>
-            </div>
-            </div>
-        </div>
-        `
-        const divContainerButton = document.createElement('div')
-        divContainerButton.setAttribute("class", "containerButton")
-
-        let buttonProducto = document.createElement('button')
-        buttonProducto.innerHTML = 'Eliminar del Carro!';
-        buttonProducto.addEventListener('click', () => {
-            console.log(getDataCarro[index]['id']);
-            newArr = deleteElementToLocalSotrage(getDataCarro, getDataCarro[index]['id'])
-            saveToLocalStorage(newArr)
-        })
-        divContainerButton.appendChild(buttonProducto)
-        divCard.appendChild(divContainerButton)
-        dataCarro.appendChild(divCard)
-
-    }
-
-    const divTotal = document.createElement('div')
-    divTotal.setAttribute('class', 'total')
-    divTotal.innerText = "Precio total: " + valorTotal
-    dataCarro.appendChild(divTotal)
-
-    const divPayContainer = document.createElement('div')
-    divPayContainer.setAttribute('class', 'payContainer')
-    dataCarro.appendChild(divPayContainer)
-
-    const divPagar = document.createElement('button')
-    divPagar.setAttribute('class', 'btn btn-success')
-    divPagar.setAttribute('id', 'btn-pagar')
-    divPagar.setAttribute('type', 'button')
-    divPagar.innerText = "Pagar"
-    divPayContainer.appendChild(divPagar)
-
-    const divVaciar = document.createElement('button')
-    divVaciar.setAttribute('class', 'btn btn-danger')
-    divVaciar.setAttribute('id', 'btn-vaciar')
-    divVaciar.setAttribute('type', 'button')
-    divVaciar.innerText = "Vaciar Carro"
-    divPayContainer.appendChild(divVaciar)
-
+    generateHtml(getDataCarro)
+    generateButtonsPayCancel(valorTotal)
 } else {
-    console.log("vacio")
     const divCard = document.createElement('div')
     divCard.setAttribute('class', 'card-body cart')
     divCard.innerHTML += `
@@ -110,8 +57,15 @@ function calculateTotal(array) {
 }
 
 function deleteElementToLocalSotrage(arr, deleteItem) {
-    const updatedHero = arr.filter(item => item.id !== deleteItem);
-    return updatedHero
+    newArr = []
+    arr.forEach(element =>{
+        if(element.id != deleteItem)
+        {
+            console.log(element.id)    
+            newArr.push(element)
+        }
+    })
+    saveToLocalStorage(newArr)
 }
 
 // Guarda en localStorage en item carro
@@ -173,24 +127,71 @@ function limpiaCarrito() {
 
 }
 
-function updateArr(array) {
+function generateHtml(array) {
     const resultado = {};
-
+    let newArr = [];
     array.forEach(el => (
         resultado[el.id] = resultado[el.id] + 1 || 1
         )
     )
-    console.log(resultado)
-    /*
-    let set = new Set(array.map(JSON.stringify))
-    let arrSinDuplicaciones = Array.from(set).map(JSON.parse);
-    return arrSinDuplicaciones;
-    */
+    for (let clave in resultado){
+        newArr= array.find(x => x.id == clave)
+        newArr.cantidad = resultado[clave]
+        const divCard = document.createElement('div')
+        divCard.setAttribute('class', 'card mb-12')
+        divCard.innerHTML += `
+        <div class="row g-0">
+            <div class="col-md-4">
+            <img src="${newArr.img}" class="img-fluid rounded-start" alt="...">
+            </div>
+            <div class="col-md-8">
+            <div class="card-body"> 
+                <h5 class="card-title">${newArr.nombre}</h5>
+                <p class="card-text">${newArr.descripcion}</p>
+                <p class="card-text">Cantidad: ${newArr.cantidad}</p>
+                <p class="card-text price">Precio: ${newArr.precio}</p>
+
+            </div>
+            </div>
+        </div>
+        `
+        const divContainerButton = document.createElement('div')
+        divContainerButton.setAttribute("class", "containerButton")
+
+        let buttonProducto = document.createElement('button')
+        buttonProducto.setAttribute('id', newArr.id)
+        buttonProducto.innerHTML = 'Eliminar del Carro! ';
+        buttonProducto.addEventListener('click', (event) => {
+            deleteElementToLocalSotrage(array, event.target.id)
+        })
+        divContainerButton.appendChild(buttonProducto)
+        divCard.appendChild(divContainerButton)
+        dataCarro.appendChild(divCard)
+        
+    }
 }
 
+function generateButtonsPayCancel(valorTotal){
+    const divTotal = document.createElement('div')
+    divTotal.setAttribute('class', 'total')
+    divTotal.innerText = "Precio total: " + valorTotal
+    dataCarro.appendChild(divTotal)
 
+    const divPayContainer = document.createElement('div')
+    divPayContainer.setAttribute('class', 'payContainer')
+    dataCarro.appendChild(divPayContainer)
 
+    const divPagar = document.createElement('button')
+    divPagar.setAttribute('class', 'btn btn-success')
+    divPagar.setAttribute('id', 'btn-pagar')
+    divPagar.setAttribute('type', 'button')
+    divPagar.innerText = "Pagar"
+    divPayContainer.appendChild(divPagar)
 
-
-
-
+    const divVaciar = document.createElement('button')
+    divVaciar.setAttribute('class', 'btn btn-danger')
+    divVaciar.setAttribute('id', 'btn-vaciar')
+    divVaciar.setAttribute('type', 'button')
+    divVaciar.innerText = "Vaciar Carro"
+    divPayContainer.appendChild(divVaciar)
+}
