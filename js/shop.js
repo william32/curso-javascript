@@ -13,28 +13,26 @@ temaSeleccinado.addEventListener("click", (event) => {
     localStorage.setItem("tema", event.target.dataset.value)
 }
 )
-const addShop = JSON.parse(localStorage.getItem("carro")) || []
-geCountElementInCarro()
 
+geCountElementInCarro()
 // Maneja en contador de item que estan en el carro
 function geCountElementInCarro() {
     let counterShop = document.querySelector('#counterShop')
     let value = JSON.parse(localStorage.getItem("carro"))
     counterShop.innerHTML = value?.length || 0
 }
-
-
-    
-
-const resultado = {};
-let newArr = [];
+// parsea variable del localstorage or array vacio
 let getDataCarro = JSON.parse(localStorage.getItem("carro")) || []
 const dataCarro = document.querySelector("#rowData")
 if (getDataCarro.length > 0) {
+    // retorna canitdad de elemnentos en el carro
     let valorTotal = calculateTotal(getDataCarro)
+    // genera estructura html
     generateHtml(getDataCarro)
+    // Botonera de pagar y vacias carro
     generateButtonsPayCancel(valorTotal)
 } else {
+    // si carro esta vacio retorna un un html
     const divCard = document.createElement('div')
     divCard.setAttribute('class', 'card-body cart')
     divCard.innerHTML += `
@@ -58,10 +56,8 @@ function calculateTotal(array) {
 
 function deleteElementToLocalSotrage(arr, deleteItem) {
     newArr = []
-    arr.forEach(element =>{
-        if(element.id != deleteItem)
-        {
-            console.log(element.id)    
+    arr.forEach(element => {
+        if (element.id != deleteItem) {
             newArr.push(element)
         }
     })
@@ -74,14 +70,14 @@ function saveToLocalStorage(data) {
     geCountElementInCarro()
     location.reload();
 }
-
+// BOTON PAGAR
 const btnPagar = document.querySelector("#btn-pagar")
 if (getDataCarro.length > 0) {
     btnPagar.addEventListener('click', (event) => {
         document.getElementById("formPay").style.display = 'block'
     })
 }
-
+// ENVIO PAGO
 const envioPago = document.querySelector("#envioPago")
 envioPago.addEventListener('click', (event) => {
     Swal.fire({
@@ -92,7 +88,7 @@ envioPago.addEventListener('click', (event) => {
     });
     limpiaCarrito();
 })
-
+// VACIAR CARRO
 const btnVaciarCarro = document.querySelector("#btn-vaciar")
 if (getDataCarro.length > 0) {
     btnVaciarCarro.addEventListener('click', (event) => {
@@ -118,7 +114,7 @@ if (getDataCarro.length > 0) {
     })
 }
 
-
+// LIMPIA CARRO
 function limpiaCarrito() {
     setTimeout(() => {
         localStorage.removeItem("carro")
@@ -126,16 +122,16 @@ function limpiaCarrito() {
     }, 3000)
 
 }
-
+// REALIZA EL CONTEO DE ELEMENTOS REPETIDOS Y GENERA LA ESCTRUCTURA HTML  
 function generateHtml(array) {
     const resultado = {};
     let newArr = [];
     array.forEach(el => (
         resultado[el.id] = resultado[el.id] + 1 || 1
-        )
     )
-    for (let clave in resultado){
-        newArr= array.find(x => x.id == clave)
+    )
+    for (let clave in resultado) {
+        newArr = array.find(x => x.id == clave)
         newArr.cantidad = resultado[clave]
         const divCard = document.createElement('div')
         divCard.setAttribute('class', 'card mb-12')
@@ -167,11 +163,11 @@ function generateHtml(array) {
         divContainerButton.appendChild(buttonProducto)
         divCard.appendChild(divContainerButton)
         dataCarro.appendChild(divCard)
-        
+
     }
 }
-
-function generateButtonsPayCancel(valorTotal){
+// GENERA HTML DE BOTON PAGAR Y VACIAR CARRO
+function generateButtonsPayCancel(valorTotal) {
     const divTotal = document.createElement('div')
     divTotal.setAttribute('class', 'total')
     divTotal.innerText = "Precio total: " + valorTotal

@@ -12,6 +12,7 @@ temaSeleccinado.addEventListener("click", (event) => {
         localStorage.setItem("tema", event.target.dataset.value)
     }
 )
+// parsea variable del localstorage or array vacio 
 const addShop = JSON.parse(localStorage.getItem("carro")) || []
 geCountElementInCarro()
 
